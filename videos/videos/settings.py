@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'videos.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'xdb',
-        'USER': 'biguser',
-        'PASSWORD': 'm@z1mb1',
+        'NAME': '***',
+        'USER': '******',
+        'PASSWORD': '*******',
         'HOST': 'localhost'
     }
 }
