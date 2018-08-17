@@ -1,0 +1,7 @@
+{{ object.title }}
+{{ object.embedded }}
+{{ object.url }}
+{{ object.channel }}
+{{ object.rating }}
+{{ object.views }}
+{{ object.thumbnail }}

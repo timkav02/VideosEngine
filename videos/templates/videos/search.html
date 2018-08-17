@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{%block title%} Search {%endblock%}
+{%block content%}
+        <div class="container-fluid">
+			<div class="main-grids">
+				<div class="recommended">
+					<!--LINE GRID-->
+					<div class="recommended-grids">
+
+							<div class="recommended-info" align="center">
+									<h4>{% include "videos/pagination.html" with page=results %}</h4>
+							</div>
+							<div class="clearfix"> </div>
+
+							{% for item in results %}
+						<div class="col-md-3 resent-grid recommended-grid">
+							<div class="resent-grid-img recommended-grid-img">
+								<a href="{{ item.url }}" target="blank">
+								
+								<div class="hs-wrapper">
+									{{item.thumbnail_set.all}}
+									{% for image in item.flipbook_set.all %}
+										<img src="{{ image }}" alt="" height="180" width="135"/>
+									{% endfor %}
+								</div>
+
+								</a>
+								<div class="time small-time">
+									<p>{{ item.rating }}</p>
+								</div>
+								<!--
+								<div class="clck small-clck">
+									<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+								</div>
+								-->
+							</div>
+							<div class="resent-grid-info recommended-grid-info video-info-grid">
+								<h5><a href="{{ item.url }}" target="blank" class="title">{{ item.title }}</a></h5>
+								<ul>
+									<li><p class="author author-info">{{ item.channel }}</p></li>
+									<li class="right-list"><p class="views views-info">{{ item.views }}</p></li>
+								</ul>
+							</div>
+						</div>
+							{% endfor %}
+						
+						 <div class="clearfix"> </div>
+						<div class="recommended-info" align="center">
+							<h5>{% include "videos/pagination.html" with page=results %}</h5>
+						</div>						
+
+					</div>
+				</div>				
+				
+			</div>
+		</div>
+{%endblock%}

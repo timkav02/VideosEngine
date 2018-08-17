@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{%block title%} xratedDB.com {%endblock%}
+{%block content%}
+        <div class="container-fluid">
+			<div class="main-grids">
+				<div class="recommended">
+					<!--LINE GRID-->
+					<div class="recommended-grids">
+
+						<div class="recommended-info" align="center">
+								<h4>{% include "videos/pagination.html" with page=tubes %}</h4>
+						</div>
+						<div class="clearfix"> </div>
+
+						{% for each_tube in tubes %}
+						<div class="col-md-3 resent-grid recommended-grid">
+							<div class="resent-grid-img recommended-grid-img">
+								<a href="{{ each_tube.url }}" target="blank">
+								
+								<div class="hs-wrapper">
+									{{each_tube.thumbnail_set.all}}
+									{% for image in each_tube.flipbook_set.all %}
+										<img src="{{ image }}" alt="" height="180" width="135"/>
+									{% endfor %}
+								</div>
+
+								</a>
+								<div class="time small-time">
+									<p>{{ each_tube.rating }}</p>
+								</div>
+								<!--
+								<div class="clck small-clck">
+									<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+								</div>
+								-->
+							</div>
+							<div class="resent-grid-info recommended-grid-info video-info-grid">
+								<h5><a href="{{ each_tube.url }}" target="blank" class="title">{{ each_tube.title }}</a></h5>
+								<ul>
+									<li><p class="author author-info">{{each_tube.channel}}</p></li>
+									<li class="right-list"><p class="views views-info">{{ each_tube.views }}</p></li>
+								</ul>
+							</div>
+						</div>
+						{% endfor %}
+						
+						 <div class="clearfix"> </div>
+						<div class="recommended-info" align="center">
+							<h4>{% include "videos/pagination.html" with page=tubes %}</h4>
+						</div>						
+
+					</div>
+				</div>				
+				
+			</div>
+		</div>
+{%endblock%}

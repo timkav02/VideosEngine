@@ -1,0 +1,2 @@
+2018/08/17 09:00:14 [crit] 3270#3270: *4 connect() to unix:/var/www/search02/run/gunicorn.sock failed (2: No such file or directory) while connecting to upstream, client: 127.0.0.1, server: xrdb, request: "HEAD / HTTP/1.1", upstream: "http://unix:/var/www/search02/run/gunicorn.sock:/", host: "xrdb"
+2018/08/17 09:00:14 [error] 3270#3270: *4 open() "/var/www/search02/videos/static/500.html" failed (2: No such file or directory), client: 127.0.0.1, server: xrdb, request: "HEAD / HTTP/1.1", upstream: "http://unix:/var/www/search02/run/gunicorn.sock/", host: "xrdb"

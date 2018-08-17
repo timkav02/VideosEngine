@@ -1,0 +1,446 @@
+Starting xrdb_app as Timo
+[2018-08-17 08:34:23 +0300] [2795] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/var/www/search02/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /var/www/search02/videos
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: xrdb_app
+  default_proc_name: videos.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f86db8c7400>
+  on_reload: <function OnReload.on_reload at 0x7f86db8c7510>
+  when_ready: <function WhenReady.when_ready at 0x7f86db8c7620>
+  pre_fork: <function Prefork.pre_fork at 0x7f86db8c7730>
+  post_fork: <function Postfork.post_fork at 0x7f86db8c7840>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f86db8c7950>
+  worker_int: <function WorkerInt.worker_int at 0x7f86db8c7a60>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f86db8c7b70>
+  pre_exec: <function PreExec.pre_exec at 0x7f86db8c7c80>
+  pre_request: <function PreRequest.pre_request at 0x7f86db8c7d90>
+  post_request: <function PostRequest.post_request at 0x7f86db8c7e18>
+  child_exit: <function ChildExit.child_exit at 0x7f86db8c7f28>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f86db6450d0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f86db6451e0>
+  on_exit: <function OnExit.on_exit at 0x7f86db6452f0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2018-08-17 08:34:23 +0300] [2795] [INFO] Starting gunicorn 19.9.0
+[2018-08-17 08:34:23 +0300] [2795] [DEBUG] Arbiter booted
+[2018-08-17 08:34:23 +0300] [2795] [INFO] Listening at: unix:/var/www/search02/run/gunicorn.sock (2795)
+[2018-08-17 08:34:23 +0300] [2795] [INFO] Using worker: sync
+[2018-08-17 08:34:23 +0300] [2820] [INFO] Booting worker with pid: 2820
+[2018-08-17 08:34:23 +0300] [2824] [INFO] Booting worker with pid: 2824
+[2018-08-17 08:34:23 +0300] [2827] [INFO] Booting worker with pid: 2827
+[2018-08-17 08:34:23 +0300] [2795] [DEBUG] 3 workers
+[2018-08-17 05:35:32 +0000] [2827] [DEBUG] GET /
+/var/www/search02/videos/search/views.py:15: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'search.models.Video'> QuerySet.
+  paginator = Paginator(vidz, 20)
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/var/www/search02/lib/python3.6/site-packages/django/core/paginator.py", line 40, in validate_number
+    number = int(number)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/www/search02/videos/search/views.py", line 18, in index
+    vidz = paginator.page(page)
+  File "/var/www/search02/lib/python3.6/site-packages/django/core/paginator.py", line 67, in page
+    number = self.validate_number(number)
+  File "/var/www/search02/lib/python3.6/site-packages/django/core/paginator.py", line 42, in validate_number
+    raise PageNotAnInteger(_('That page number is not an integer'))
+django.core.paginator.PageNotAnInteger: That page number is not an integer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/www/search02/lib/python3.6/site-packages/django/db/backends/base/base.py", line 216, in ensure_connection
+    self.connect()
+  File "/var/www/search02/lib/python3.6/site-packages/django/db/backends/base/base.py", line 194, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/var/www/search02/lib/python3.6/site-packages/django/db/backends/postgresql/base.py", line 174, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "/var/www/search02/lib/python3.6/site-packages/psycopg2/__init__.py", line 130, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not connect to server: Connection refused
+	Is the server running on host "localhost" (::1) and accepting
+	TCP/IP connections on port 5432?
+could not connect to server: Connection refused
+	Is the server running on host "localhost" (127.0.0.1) and accepting
+	TCP/IP connections on port 5432?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/www/search02/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/var/www/search02/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/var/www/search02/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/var/www/search02/videos/search/views.py", line 21, in index
+    vidz = paginator.page(1)
+  File "/var/www/search02/lib/python3.6/site-packages/django/core/paginator.py", line 67, in page
+    number = self.validate_number(number)
+  File "/var/www/search02/lib/python3.6/site-packages/django/core/paginator.py", line 45, in validate_number
+    if number > self.num_pages:
+  File "/var/www/search02/lib/python3.6/site-packages/django/utils/functional.py", line 37, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/var/www/search02/lib/python3.6/site-packages/django/core/paginator.py", line 97, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+  File "/var/www/search02/lib/python3.6/site-packages/django/utils/functional.py", line 37, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/var/www/search02/lib/python3.6/site-packages/django/core/paginator.py", line 87, in count
+    return self.object_list.count()
+  File "/var/www/search02/lib/python3.6/site-packages/django/db/models/query.py", line 383, in count
+    return self.query.get_count(using=self.db)
+  File "/var/www/search02/lib/python3.6/site-packages/django/db/models/sql/query.py", line 498, in get_count
+    number = obj.get_aggregation(using, ['__count'])['__count']
+  File "/var/www/search02/lib/python3.6/site-packages/django/db/models/sql/query.py", line 483, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/var/www/search02/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1059, in execute_sql
+    cursor = self.connection.cursor()
+  File "/var/www/search02/lib/python3.6/site-packages/django/db/backends/base/base.py", line 255, in cursor
+    return self._cursor()
+  File "/var/www/search02/lib/python3.6/site-packages/django/db/backends/base/base.py", line 232, in _cursor
+    self.ensure_connection()
+  File "/var/www/search02/lib/python3.6/site-packages/django/db/backends/base/base.py", line 216, in ensure_connection
+    self.connect()
+  File "/var/www/search02/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/var/www/search02/lib/python3.6/site-packages/django/db/backends/base/base.py", line 216, in ensure_connection
+    self.connect()
+  File "/var/www/search02/lib/python3.6/site-packages/django/db/backends/base/base.py", line 194, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/var/www/search02/lib/python3.6/site-packages/django/db/backends/postgresql/base.py", line 174, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "/var/www/search02/lib/python3.6/site-packages/psycopg2/__init__.py", line 130, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not connect to server: Connection refused
+	Is the server running on host "localhost" (::1) and accepting
+	TCP/IP connections on port 5432?
+could not connect to server: Connection refused
+	Is the server running on host "localhost" (127.0.0.1) and accepting
+	TCP/IP connections on port 5432?
+
+[2018-08-17 08:42:49 +0300] [2795] [INFO] Handling signal: term
+Traceback (most recent call last):
+  File "/var/www/search02/lib/python3.6/site-packages/gunicorn/arbiter.py", line 225, in run
+    handler()
+  File "/var/www/search02/lib/python3.6/site-packages/gunicorn/arbiter.py", line 260, in handle_term
+    raise StopIteration
+StopIteration
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/www/search02/bin/gunicorn", line 11, in <module>
+    sys.exit(run())
+  File "/var/www/search02/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 61, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/var/www/search02/lib/python3.6/site-packages/gunicorn/app/base.py", line 223, in run
+    super(Application, self).run()
+  File "/var/www/search02/lib/python3.6/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/var/www/search02/lib/python3.6/site-packages/gunicorn/arbiter.py", line 228, in run
+    self.halt()
+  File "/var/www/search02/lib/python3.6/site-packages/gunicorn/arbiter.py", line 345, in halt
+    self.stop()
+  File "/var/www/search02/lib/python3.6/site-packages/gunicorn/arbiter.py", line 382, in stop
+    sock.close_sockets(self.LISTENERS, unlink)
+  File "/var/www/search02/lib/python3.6/site-packages/gunicorn/sock.py", line 209, in close_sockets
+    os.unlink(sock_name)
+FileNotFoundError: [Errno 2] No such file or directory: '/var/www/search02/run/gunicorn.sock'
+Starting xrdb_app as Timo
+[2018-08-17 08:42:51 +0300] [3221] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/var/www/search02/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /var/www/search02/videos
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: xrdb_app
+  default_proc_name: videos.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f46c4f2c400>
+  on_reload: <function OnReload.on_reload at 0x7f46c4f2c510>
+  when_ready: <function WhenReady.when_ready at 0x7f46c4f2c620>
+  pre_fork: <function Prefork.pre_fork at 0x7f46c4f2c730>
+  post_fork: <function Postfork.post_fork at 0x7f46c4f2c840>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f46c4f2c950>
+  worker_int: <function WorkerInt.worker_int at 0x7f46c4f2ca60>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f46c4f2cb70>
+  pre_exec: <function PreExec.pre_exec at 0x7f46c4f2cc80>
+  pre_request: <function PreRequest.pre_request at 0x7f46c4f2cd90>
+  post_request: <function PostRequest.post_request at 0x7f46c4f2ce18>
+  child_exit: <function ChildExit.child_exit at 0x7f46c4f2cf28>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f46c4caa0d0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f46c4caa1e0>
+  on_exit: <function OnExit.on_exit at 0x7f46c4caa2f0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2018-08-17 08:42:51 +0300] [3221] [INFO] Starting gunicorn 19.9.0
+[2018-08-17 08:42:51 +0300] [3221] [DEBUG] Arbiter booted
+[2018-08-17 08:42:51 +0300] [3221] [INFO] Listening at: unix:/var/www/search02/run/gunicorn.sock (3221)
+[2018-08-17 08:42:51 +0300] [3221] [INFO] Using worker: sync
+[2018-08-17 08:42:51 +0300] [3238] [INFO] Booting worker with pid: 3238
+[2018-08-17 08:42:51 +0300] [3239] [INFO] Booting worker with pid: 3239
+[2018-08-17 08:42:51 +0300] [3241] [INFO] Booting worker with pid: 3241
+[2018-08-17 08:42:51 +0300] [3221] [DEBUG] 3 workers
+[2018-08-17 05:45:15 +0000] [3241] [DEBUG] HEAD /
+/var/www/search02/videos/search/views.py:15: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'search.models.Video'> QuerySet.
+  paginator = Paginator(vidz, 20)
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/var/www/search02/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/var/www/search02/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/var/www/search02/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/var/www/search02/videos/search/views.py", line 25, in index
+    return render(request, 'videos/index.html', {'page': page, 'tubes':vidz})
+  File "/var/www/search02/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/var/www/search02/lib/python3.6/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/var/www/search02/lib/python3.6/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: videos/index.html
+[2018-08-17 09:00:35 +0300] [3221] [INFO] Handling signal: term
+Traceback (most recent call last):
+  File "/var/www/search02/lib/python3.6/site-packages/gunicorn/arbiter.py", line 225, in run
+    handler()
+  File "/var/www/search02/lib/python3.6/site-packages/gunicorn/arbiter.py", line 260, in handle_term
+    raise StopIteration
+StopIteration
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/www/search02/bin/gunicorn", line 11, in <module>
+    sys.exit(run())
+  File "/var/www/search02/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 61, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/var/www/search02/lib/python3.6/site-packages/gunicorn/app/base.py", line 223, in run
+    super(Application, self).run()
+  File "/var/www/search02/lib/python3.6/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/var/www/search02/lib/python3.6/site-packages/gunicorn/arbiter.py", line 228, in run
+    self.halt()
+  File "/var/www/search02/lib/python3.6/site-packages/gunicorn/arbiter.py", line 345, in halt
+    self.stop()
+  File "/var/www/search02/lib/python3.6/site-packages/gunicorn/arbiter.py", line 382, in stop
+    sock.close_sockets(self.LISTENERS, unlink)
+  File "/var/www/search02/lib/python3.6/site-packages/gunicorn/sock.py", line 209, in close_sockets
+    os.unlink(sock_name)
+FileNotFoundError: [Errno 2] No such file or directory: '/var/www/search02/run/gunicorn.sock'
+Starting xrdb_app as Timo
+[2018-08-17 09:00:38 +0300] [3787] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/var/www/search02/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /var/www/search02/videos
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: xrdb_app
+  default_proc_name: videos.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f9c44553400>
+  on_reload: <function OnReload.on_reload at 0x7f9c44553510>
+  when_ready: <function WhenReady.when_ready at 0x7f9c44553620>
+  pre_fork: <function Prefork.pre_fork at 0x7f9c44553730>
+  post_fork: <function Postfork.post_fork at 0x7f9c44553840>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f9c44553950>
+  worker_int: <function WorkerInt.worker_int at 0x7f9c44553a60>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f9c44553b70>
+  pre_exec: <function PreExec.pre_exec at 0x7f9c44553c80>
+  pre_request: <function PreRequest.pre_request at 0x7f9c44553d90>
+  post_request: <function PostRequest.post_request at 0x7f9c44553e18>
+  child_exit: <function ChildExit.child_exit at 0x7f9c44553f28>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f9c442d10d0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f9c442d11e0>
+  on_exit: <function OnExit.on_exit at 0x7f9c442d12f0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2018-08-17 09:00:38 +0300] [3787] [INFO] Starting gunicorn 19.9.0
+[2018-08-17 09:00:38 +0300] [3787] [DEBUG] Arbiter booted
+[2018-08-17 09:00:38 +0300] [3787] [INFO] Listening at: unix:/var/www/search02/run/gunicorn.sock (3787)
+[2018-08-17 09:00:38 +0300] [3787] [INFO] Using worker: sync
+[2018-08-17 09:00:38 +0300] [3807] [INFO] Booting worker with pid: 3807
+[2018-08-17 09:00:38 +0300] [3808] [INFO] Booting worker with pid: 3808
+[2018-08-17 09:00:38 +0300] [3812] [INFO] Booting worker with pid: 3812
+[2018-08-17 09:00:38 +0300] [3787] [DEBUG] 3 workers
+[2018-08-17 06:01:08 +0000] [3812] [DEBUG] HEAD /
+/var/www/search02/videos/search/views.py:15: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'search.models.Video'> QuerySet.
+  paginator = Paginator(vidz, 20)
+[2018-08-17 06:01:18 +0000] [3812] [DEBUG] GET /

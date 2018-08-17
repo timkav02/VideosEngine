@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html lang="en">
+   <head>
+        <title>{%block title%}{%endblock%} - xrateddb.com </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="My Play Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+        Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <link rel="icon" href="{% static 'images/favicon.ico' %}">
+        <!-- bootstrap -->
+        <link href="{% static 'css/bootstrap.min.css' %}" rel='stylesheet' type='text/css' media="all" />
+        <!-- //bootstrap -->
+        <link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+        <!-- Custom Theme files -->
+        <link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' media="all" />
+        <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+        <script src="{% static 'js/modernizr.custom.04022.js' %}"></script>
+        <!--start-smoth-scrolling-->
+        <!-- fonts -->
+        <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+        <!-- //fonts -->
+    </head>
+    <body>
+            <!--HEADER-->
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="container-fluid">
+                      <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href=""><h1><img src="{% static 'images/logo.png' %}" alt="xrateddb" /></h1></a>
+                      </div>
+                      <div id="navbar" class="navbar-collapse collapse">
+                          <div class="top-search">
+                              <form class="navbar-form navbar-right" action="{% url 'search:post_search' %}" method="GET">
+                                  <input type="text" name="q" class="form-control" value="{{ request.GET.q }}" placeholder="Content Search...">
+                                  <input type="submit" value="">
+                              </form>
+                          </div>
+              
+                      </div>
+                      <div class="clearfix"> </div>
+                    </div>
+            </nav>
+            <!--HEADER-->
+            <!--BODY-->
+            {%block content%}
+		
+            {%endblock%}
+            <!--BODY-->
+            <!--FOOTER-->
+            <div class="footer">
+                    <div class="footer-grids">
+                        <div class="footer-top">
+                            <div class="footer-top-nav">
+                                <ul>
+                                    <li><a href="#">Parental Control</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">2257</a></li>
+                                    <li><a href="#">DCMA</a></li>
+                                    <li><a href="#">Privacy</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer-bottom">
+                            <div class="copyright">
+                                <p>Copyright © 2018 Bilqis Media LLC. All Rights Reserved </p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <!--FOOTER-->
+            <!--DEFAULT-JS-->
+            <div class="drop-menu">
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu4">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Regular link</a></li>
+                      <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">Disabled link</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another link</a></li>
+                    </ul>
+            </div>
+            <!--DEFAULT-JS-->
+                <!-- Bootstrap core JavaScript
+                ================================================== -->
+                <!-- Placed at the end of the document so the pages load faster -->
+                <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    </body>
